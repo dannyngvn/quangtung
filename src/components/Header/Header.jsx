@@ -1,6 +1,6 @@
 import './Header.css';
-import { Link } from 'react-router-dom';
-import { useCartContext } from '.../context/cart_context';
+import { Link, NavLink } from 'react-router-dom';
+import { useCartContext } from '../../context/cart_context';
 
 const Header = props => {
   const { imgurl } = props;
@@ -32,10 +32,12 @@ const Header = props => {
             </a>
           </li>
           <li className="cart">
-            <a href="https:thamyoganamaste.com">
-              <i className="icon-menu lni lni-cart m-4"></i>
-            </a>
-            <div className="quantity-cart">{total_item}</div>
+            <NavLink to="/cart">
+              <a href="https:thamyoganamaste.com">
+                <i className="icon-menu lni lni-cart m-4"></i>
+              </a>
+              <div className="quantity-cart">{total_item}</div>
+            </NavLink>
           </li>
         </ul>
       </div>
