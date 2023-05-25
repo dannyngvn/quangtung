@@ -1,0 +1,17 @@
+.banner {
+  height: 100vh;
+  width: 100%;
+}
+.banner video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.conten-banner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+}
