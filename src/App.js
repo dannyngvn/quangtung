@@ -14,6 +14,7 @@ import { ThemeProvider } from 'styled-components';
 import Header from './components/Header/Header';
 import MenuModal from './components/Header/MenuModal/MenuModal';
 import LoginPage from './components/Regester/Login';
+import Footer from './components/Footer/Footer';
 
 // import Footer from "./components/Footer";
 
@@ -67,7 +68,7 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
-        {/* {/* <Footer /> */}
+        <Footer />
       </Router>
     </ThemeProvider>
   );
