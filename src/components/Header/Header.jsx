@@ -12,7 +12,7 @@ const Header = props => {
 
   return (
     <div className="sticky-header">
-      <div className="header d-flex align-items-center justify-content-between container">
+      <div className="header container">
         <div className="menu-icon">
           <i onClick={turnOnMenu} className="icon-menu lni lni-menu"></i>
         </div>
@@ -22,7 +22,7 @@ const Header = props => {
           </Link>
         </div>
 
-        <ul className="nav-icon d-flex align-items-center">
+        <ul className="nav-icon d-flex ">
           <li>
             <i className="icon-menu lni lni-search-alt m-4"></i>
           </li>
@@ -33,9 +33,7 @@ const Header = props => {
           </li>
           <li className="cart">
             <NavLink to="/cart">
-              <a href="https:thamyoganamaste.com">
-                <i className="icon-menu lni lni-cart m-4"></i>
-              </a>
+              <i className="icon-menu lni lni-cart m-4"></i>
               <div className="quantity-cart">{total_item}</div>
             </NavLink>
           </li>

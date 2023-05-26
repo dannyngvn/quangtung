@@ -15,6 +15,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
+  gap: 15px;
 }
 
 .cart {
@@ -22,6 +24,9 @@
 }
 .header {
   padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menu-icon {
@@ -40,6 +45,6 @@
   line-height: 25px;
   text-align: center;
   position: absolute;
-  top: 0px;
-  right: 9px;
+  top: -18px;
+  right: -26px;
 }

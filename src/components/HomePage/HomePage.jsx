@@ -2,15 +2,13 @@ import React from 'react';
 import Banner from './Banner/Banner';
 import './HomePage.css';
 import SmallBanner from './SmallBanner/SmallBanner';
-// import ProductItem from '../../component/ProductItem/ProductItem';
+
 import SelectionSmall from './SelectionSmall/SelectionSmall';
 import CountdownTimer from './CountdownTimer/CountdownTimer';
-import Slide from './Slider/Slider';
-import SlideSelf from './Slider/SliderSelf';
+
 import { NavLink } from 'react-router-dom';
-import Services from '../Services';
-import Trusted from '../Trusted';
 import HeadingTitle from '../HeadingTitle/HeadingTitle';
+import Slider from './Slider/Slider';
 
 // import { Helmet } from 'react-helmet';
 
@@ -18,7 +16,8 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <Banner />
-      <HeadingTitle />
+      <HeadingTitle title="Sản Phẩm Mới" />
+      <Slider />
 
       <div
         className="slogan-container"
@@ -98,18 +97,6 @@ const HomePage = () => {
           <CountdownTimer hours={100} minutes={0} seconds={2} />
         </div>
       </div>
-
-      <div className="conten-small-banner-slide-test">
-        <div className="half-width-slide">
-          <Slide />
-        </div>
-        <div className="half-width-slide">
-          <SlideSelf />
-        </div>
-      </div>
-
-      <Services />
-      <Trusted />
     </div>
   );
 };
