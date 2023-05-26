@@ -5,10 +5,11 @@
 
 .heading-line {
   border-bottom: 1px solid #d77da0;
-  width: 35%;
+  width: 100%;
 }
 
 .heading-title .title {
   margin: 10px auto;
-  width: fit-content;
+  width: 100%;
+  text-align: center;
 }
