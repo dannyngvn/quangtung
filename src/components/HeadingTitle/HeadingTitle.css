@@ -1,0 +1,13 @@
+.heading-title {
+  display: flex;
+  align-items: center;
+}
+
+.heading-line {
+  border-bottom: 1px solid #d77da0;
+  width: 100%;
+}
+
+.heading-title .title {
+  margin: 0 10px;
+}
