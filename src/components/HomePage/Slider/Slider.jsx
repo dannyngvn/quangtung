@@ -17,8 +17,8 @@ const Slider = () => {
   return (
     <>
       <Swiper
+        slidesPerView={3}
         spaceBetween={30}
-        centeredSlides={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -31,15 +31,32 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="tab-slider container">
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-          </div>
+          <Product />
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Product />
+        </SwiperSlide>
       </Swiper>
     </>
   );
