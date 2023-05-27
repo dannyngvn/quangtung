@@ -13,7 +13,7 @@ import Product from '../../Product';
 
 const Slider = () => {
   return (
-    <>
+    <div className="container">
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -52,7 +52,7 @@ const Slider = () => {
           <Product />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 
