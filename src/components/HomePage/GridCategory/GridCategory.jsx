@@ -8,7 +8,7 @@ const GridCategory = () => {
         <div className="banner-col-1">
           <div className="banner-1">
             <div className="conten-banner1">
-              <h3
+              {/* <h3
                 style={{
                   fontSize: 18,
                   lineHeight: 1,
@@ -20,20 +20,21 @@ const GridCategory = () => {
                 }}
               >
                 50% Off
-              </h3>
+              </h3> */}
               <h2
                 style={{
                   margin: '20px 0',
                   fontSize: 40,
                   lineHeight: 1,
                   fontWeight: 700,
+                  // color: '#ffff',
                 }}
               >
                 Thảm yoga
               </h2>
-              <h3>
+              {/* <h3>
                 <del>$59</del> $15
-              </h3>
+              </h3> */}
             </div>
             <div className="shopnow-banner1">Shop Now</div>
           </div>
