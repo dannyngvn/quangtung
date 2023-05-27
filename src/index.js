@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { AppProvider } from "./context/productcontex";
-import { FilterContextProvider } from "./context/filter_context";
-import { CartProvider } from "./context/cart_context";
+import { AppProvider } from "./contexts/ProductContext";
+import { FilterContextProvider } from "./contexts/FilterContext";
+import { CartProvider } from "./contexts/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

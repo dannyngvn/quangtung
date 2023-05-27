@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import CartAmountToggle from "./CartAmountToggle";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
-import { useCartContext } from "../context/cart_context";
+import { useCartContext } from "../contexts/CartContext";
 
 const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();
@@ -23,7 +23,9 @@ const AddToCart = ({ product }) => {
     if (amount < stock) {
       if (amount + 1 === stock) {
         setAmount(stock);
-        alert("Alert: Vui lòng liên hệ trực tiếp để mua số lượng lớn với giá ưu đãi.");
+        alert(
+          "Alert: Vui lòng liên hệ trực tiếp để mua số lượng lớn với giá ưu đãi."
+        );
       } else {
         setAmount(amount + 1);
       }
@@ -57,8 +59,7 @@ const AddToCart = ({ product }) => {
               key={index}
               style={{ backgroundColor: curColor }}
               className={color === curColor ? "btnStyle active" : "btnStyle"}
-              onClick={() => setColor(curColor)}
-            >
+              onClick={() => setColor(curColor)}>
               {color === curColor ? <FaCheck className="checkStyle" /> : null}
             </button>
           ))}
@@ -72,8 +73,7 @@ const AddToCart = ({ product }) => {
             <button
               key={index}
               className={curSize === size ? "active" : ""}
-              onClick={() => setSize(curSize)}
-            >
+              onClick={() => setSize(curSize)}>
               <span className="sizeStyle">{curSize}</span>
               {size === curSize ? <FaCheck className="checkStyleSize" /> : null}
             </button>
@@ -81,7 +81,12 @@ const AddToCart = ({ product }) => {
         </div>
       </div>
 
-      <CartAmountToggle amount={amount} setDecrease={setDecrease} setIncrease={setIncrease} hideDecrease={amount === 1} />
+      <CartAmountToggle
+        amount={amount}
+        setDecrease={setDecrease}
+        setIncrease={setIncrease}
+        hideDecrease={amount === 1}
+      />
       {/* <CartAmountToggle amount={amount} setDecrease={setDecrease} setIncrease={setIncrease} /> */}
 
       <Button className="btn" onClick={handleAddToCartClick}>
@@ -147,20 +152,20 @@ const Wrapper = styled.section`
     margin-top: 2rem;
     color: ${({ theme }) => theme.colors.pinkw};
   }
-  
+
   .sizes p {
     font-size: 1.6rem;
     font-weight: bold;
     margin-right: 1.6rem;
   }
-  
+
   .size-grid {
     display: flex;
     flex-wrap: wrap;
     margin-top: 0.8rem;
     color: ${({ theme }) => theme.colors.pinkw};
   }
-  
+
   .size-grid button {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -173,18 +178,15 @@ const Wrapper = styled.section`
     padding: 0.8rem 1.2rem;
     transition: all 0.2s ease-in-out;
   }
-  
 
   .size-grid button:hover {
     background-color: ${({ theme }) => theme.colors.btn};
     border-color: ${({ theme }) => theme.colors.btn};
     color: #fffg;
   }
-  
-  .sizeStyle {
-  color: ${({ theme }) => theme.colors.pinkw};
-  }
-  
 
+  .sizeStyle {
+    color: ${({ theme }) => theme.colors.pinkw};
+  }
 `;
 export default AddToCart;

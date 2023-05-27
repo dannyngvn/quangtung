@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useFilterContext } from "../context/filter_context";
+import { useFilterContext } from "../contexts/FilterContext";
 import { FaCheck } from "react-icons/fa";
 import FormatPrice from "../Helpers/FormatPrice";
 import { Button } from "../styles/Button";
@@ -206,14 +206,14 @@ const Wrapper = styled.section`
     justify-content: flex-start;
     align-items: center;
   }
-  
+
   .color-all--style {
     background-color: transparent;
     text-transform: capitalize;
     border: none;
     cursor: pointer;
   }
-  
+
   .btnStyle {
     width: 2rem;
     height: 2rem;
@@ -224,16 +224,16 @@ const Wrapper = styled.section`
     opacity: 0.5;
     cursor: pointer;
   }
-  
+
   .btnStyle:hover {
     opacity: 1;
   }
-  
+
   .checkStyle {
     color: #fff;
     font-size: 0.8rem;
   }
-  
+
   /* Media queries for mobile */
   @media (max-width: 768px) {
     .color-all--style,
@@ -241,7 +241,6 @@ const Wrapper = styled.section`
       width: 100%;
     }
   }
-
 
   .active {
     opacity: 1;

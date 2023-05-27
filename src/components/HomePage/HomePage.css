@@ -5,9 +5,6 @@
   padding: 0;
 }
 
-
-
-
 #btnn {
   display: inline-block;
   border-radius: 50px;
@@ -22,17 +19,13 @@
   margin: 0;
 }
 
-
-
 #btnn:hover {
   background-color: rgb(214, 112, 198);
 }
 
-
 .small-banner {
   width: 50%;
 }
-
 
 .slogan-container {
   position: relative;
@@ -50,7 +43,6 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
 
 .d-flex {
   display: flex;
@@ -95,7 +87,6 @@
   padding: 10%;
 }
 
-
 .blur {
   position: absolute;
   width: 100%;
@@ -105,7 +96,7 @@
 }
 
 .blur::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -125,8 +116,6 @@
   position: absolute;
   z-index: 20;
 }
-
-
 
 .conten-small-banner-slide-test {
   display: flex;

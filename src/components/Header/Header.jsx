@@ -1,6 +1,6 @@
 import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
-import { useCartContext } from '../../context/cart_context';
+import { useCartContext } from '../../contexts/CartContext';
 
 const Header = props => {
   const { imgurl } = props;
