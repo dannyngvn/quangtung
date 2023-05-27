@@ -1,5 +1,6 @@
 import React from 'react';
 import './GridCategory.css';
+import Banner from '../Banner/Banner';
 
 const GridCategory = () => {
   return (
@@ -7,6 +8,7 @@ const GridCategory = () => {
       <div className="banner-grid">
         <div className="banner-col-1">
           <div className="banner-1">
+            <Banner />
             <div className="conten-banner1">
               {/* <h3
                 style={{
@@ -21,7 +23,7 @@ const GridCategory = () => {
               >
                 50% Off
               </h3> */}
-              <h2
+              {/* <h2
                 style={{
                   margin: '20px 0',
                   fontSize: 40,
@@ -31,12 +33,12 @@ const GridCategory = () => {
                 }}
               >
                 Thảm yoga
-              </h2>
+              </h2> */}
               {/* <h3>
                 <del>$59</del> $15
               </h3> */}
             </div>
-            <div className="shopnow-banner1">Shop Now</div>
+            {/* <div className="shopnow-banner1">Shop Now</div> */}
           </div>
         </div>
         <div className="banner-col-2">

@@ -5,18 +5,10 @@
   /* width: 100%; */
 }
 video {
-  /* height: 90vh; */
-  /* width: 100%; */
-  /* Make video to at least 100% wide and tall */
-  /* min-width: 100%; */
-  /* min-height: 100%; */
-
-  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 20px;
-
-  /* Center the video */
+  height: 100%;
 }
 
 .conten-banner {
