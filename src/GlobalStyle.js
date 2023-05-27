@@ -1,13 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Work Sans", sans-serif;
-}
+
 
 
 html {
@@ -39,13 +34,7 @@ body::-webkit-scrollbar-thumb {
     background-clip: content-box;
 }
 
-h1,
-h2,
-h3,
-h4 {
-   font-family: "Work Sans", sans-serif;
 
-}
 
 h1 {
   color: ${({ theme }) => theme.colors.heading};
@@ -82,7 +71,7 @@ li {
 }
 
 
-${"" /* resuable code section  */}
+${'' /* resuable code section  */}
 
 .container {
   max-width: 120rem;
