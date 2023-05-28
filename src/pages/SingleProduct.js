@@ -1,17 +1,17 @@
-import { useEffect } from "react";
-import styled from "styled-components";
-import { useParams } from "react-router-dom";
-import { MdSecurity } from "react-icons/md";
-import { TbTruckDelivery, TbReplace } from "react-icons/tb";
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+import { MdSecurity } from 'react-icons/md';
+import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
 // import { createContext, useContext, useEffect, useReducer } from "react";
-import MyImage from "../components/MyImage";
-import PageNavigation from "../components/PageNavigation";
-import { Container } from "../styles/Container";
-import FormatPrice from "../Helpers/FormatPrice";
-import Star from "../components/Star";
-import AddToCart from "../components/AddToCart";
-import data from "../contexts/data";
-import { useProductContext } from "../contexts/ProductContext";
+import MyImage from '../components/MyImage';
+import PageNavigation from '../components/PageNavigation';
+import { Container } from '../styles/Container';
+import FormatPrice from '../Helpers/FormatPrice';
+import Star from '../components/Star';
+import AddToCart from '../components/AddToCart';
+import data from '../contexts/data';
+import { useProductContext } from '../contexts/ProductContext';
 
 const SingleProduct = () => {
   const {
@@ -39,7 +39,7 @@ const SingleProduct = () => {
   useEffect(() => {
     const getProduct = () => {
       if (singleProduct.id !== id) {
-        const product = data.find((item) => item.id === id);
+        const product = data.find(item => item.id === id);
         if (product) {
           getSingleProduct(product.id);
         }
@@ -105,7 +105,7 @@ const SingleProduct = () => {
             <div className="product-data-info">
               <p>
                 Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+                <span> {stock > 0 ? 'In Stock' : 'Not Available'}</span>
               </p>
               <p>
                 ID : <span> {productId} </span>
