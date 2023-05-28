@@ -118,7 +118,9 @@ const SingleProduct = () => {
             </div>
             <hr />
             {stock > 0 && <AddToCart product={singleProduct} />}
-            <RatingForm
+          </div>
+        </div>
+        <RatingForm
               rating={rating}
               setRating={setRating}
               review={review}
@@ -128,8 +130,6 @@ const SingleProduct = () => {
               email={email}
               setEmail={setEmail}
             />
-          </div>
-        </div>
       </Container>
     </Wrapper>
   );
