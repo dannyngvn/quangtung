@@ -36,7 +36,6 @@ const HomePage = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          a,
         }}
       >
         <div className="blur"></div>
