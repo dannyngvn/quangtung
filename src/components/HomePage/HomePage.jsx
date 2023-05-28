@@ -1,9 +1,7 @@
 import React from 'react';
-import Banner from './Banner/Banner';
-import './HomePage.css';
-import SmallBanner from './SmallBanner/SmallBanner';
 
-import SelectionSmall from './SelectionSmall/SelectionSmall';
+import './HomePage.css';
+
 import CountdownTimer from './CountdownTimer/CountdownTimer';
 
 import { NavLink } from 'react-router-dom';
@@ -22,7 +20,6 @@ const HomePage = () => {
       <Slider />
       <HeadingTitle title="Sản Bán Chạy" />
       <Slider />
-
       <div
         style={{
           backgroundImage: `url('./asset/images/slogan.jpg')`,

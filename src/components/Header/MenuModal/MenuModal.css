@@ -27,4 +27,5 @@
 .navlink:hover {
   background-color: #d77d9fc9;
   color: white;
+  text-decoration: none;
 }

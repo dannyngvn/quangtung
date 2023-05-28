@@ -49,3 +49,17 @@
   top: -18px;
   right: -26px;
 }
+
+.use-btn {
+  background-color: #d77d9f00;
+  border: none;
+}
+
+.use-btn:hover {
+  background-color: #d77d9f00;
+  border: none;
+}
+
+.use-btn:focus {
+  box-shadow: 0 0 0 0.2rem #d77da0;
+}
