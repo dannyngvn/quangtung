@@ -1,5 +1,5 @@
 .slide-container {
-  height: 400px; /* Đặt kích thước cao cho slide container */
+  height: 100%; /* Đặt kích thước cao cho slide container */
   border-radius: 50px;
   text-align: center;
   color: rgb(215, 125, 160);

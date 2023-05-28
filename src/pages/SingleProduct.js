@@ -59,9 +59,7 @@ const SingleProduct = () => {
 
   return (
     <Wrapper>
-      <Helmet>
-        <title>{name} - Namaste Yoga Store</title>
-      </Helmet>
+      <Helmet>{/* <title>{name} - Namaste Yoga Store</title> */}</Helmet>
       {/* <PageNavigation title={name} /> */}
       <Container className="container">
         <div className="grid grid-two-column">
