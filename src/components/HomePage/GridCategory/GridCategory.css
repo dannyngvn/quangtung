@@ -102,3 +102,17 @@
   top: 10px;
   left: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .banner-grid {
+    flex-direction: column;
+  }
+
+  .banner-col-1 {
+    height: 440px;
+    width: 100%;
+  }
+  .banner-col-2 {
+    width: 100%;
+  }
+}
