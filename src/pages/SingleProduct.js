@@ -1,23 +1,22 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
-import { MdSecurity } from 'react-icons/md';
-import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
-// import { createContext, useContext, useEffect, useReducer } from "react";
-import MyImage from '../components/MyImage';
-import PageNavigation from '../components/PageNavigation';
-import { Container } from '../styles/Container';
-import FormatPrice from '../Helpers/FormatPrice';
-import Star from '../components/Star';
-import AddToCart from '../components/AddToCart';
-import data from '../contexts/data';
-import { useProductContext } from '../contexts/ProductContext';
-import { Helmet } from 'react-helmet';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { MdSecurity } from "react-icons/md";
+import { TbTruckDelivery, TbReplace } from "react-icons/tb";
+import MyImage from "../components/MyImage";
+import PageNavigation from "../components/PageNavigation";
+import { Container } from "../styles/Container";
+import FormatPrice from "../Helpers/FormatPrice";
+import Star from "../components/Star";
+import AddToCart from "../components/AddToCart";
+import data from "../contexts/data";
+import { useProductContext } from "../contexts/ProductContext";
+import RatingForm from "../components/RatingForm/RatingForm";
 
 const SingleProduct = () => {
   const {
     getSingleProduct,
-    // isSingleLoading,
+    isSingleLoading,
     singleProduct = {},
   } = useProductContext();
   const { id } = useParams();
@@ -35,13 +34,17 @@ const SingleProduct = () => {
     reviews,
     image,
     images,
-    sold,
   } = singleProduct;
+
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState("");
+  const [customerName, setCustomerName] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const getProduct = () => {
       if (singleProduct.id !== id) {
-        const product = data.find(item => item.id === id);
+        const product = data.find((item) => item.id === id);
         if (product) {
           getSingleProduct(product.id);
         }
@@ -50,25 +53,26 @@ const SingleProduct = () => {
     getProduct();
   }, [id, getSingleProduct, singleProduct]);
 
-  // console.log(singleProduct.sizes);
-  // console.log(singleProduct.colors);
 
-  // if (isSingleLoading) {
-  //   return <div className="page_loading">Loading.....</div>;
-  // }
+
+
+  if (isSingleLoading) {
+    return <div className="page_loading">Loading.....</div>;
+  }
 
   return (
     <Wrapper>
+<<<<<<< HEAD
       <Helmet>{/* <title>{name} - Namaste Yoga Store</title> */}</Helmet>
       {/* <PageNavigation title={name} /> */}
+=======
+>>>>>>> 4899986355bfa6b90ee5b78a19a7101ea75daeec
       <Container className="container">
         <div className="grid grid-two-column">
-          {/* product Images  */}
           <div className="product_images">
             <MyImage imgs={images} />
           </div>
 
-          {/* product data  */}
           <div className="product-data">
             <h2>{name}</h2>
             <Star stars={stars} reviews={reviews} />
@@ -84,10 +88,10 @@ const SingleProduct = () => {
             </p>
             <p>{description}</p>
             <div className="product-data-warranty">
-              {/* <div className="product-warranty-data">
+              <div className="product-warranty-data">
                 <TbTruckDelivery className="warranty-icon" />
                 <p>Giao tận tay</p>
-              </div> */}
+              </div>
 
               <div className="product-warranty-data">
                 <TbReplace className="warranty-icon" />
@@ -96,19 +100,19 @@ const SingleProduct = () => {
 
               <div className="product-warranty-data">
                 <TbTruckDelivery className="warranty-icon" />
-                <p>Vận chuyển nhanh nhất </p>
+                <p>Vận chuyển nhanh nhất</p>
               </div>
 
               <div className="product-warranty-data">
                 <MdSecurity className="warranty-icon" />
-                <p>Bảo hành tận tình </p>
+                <p>Bảo hành tận tình</p>
               </div>
             </div>
 
             <div className="product-data-info">
               <p>
                 Available:
-                <span> {stock > 0 ? 'In Stock' : 'Not Available'}</span>
+                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
               </p>
               <p>
                 ID : <span> {productId} </span>
@@ -116,14 +120,21 @@ const SingleProduct = () => {
               <p>
                 Brand :<span> {company} </span>
               </p>
-              <p>
-                Sold :<span> {sold} </span>
-              </p>
             </div>
             <hr />
             {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>
+        <RatingForm
+              rating={rating}
+              setRating={setRating}
+              review={review}
+              setReview={setReview}
+              customerName={customerName}
+              setCustomerName={setCustomerName}
+              email={email}
+              setEmail={setEmail}
+            />
       </Container>
     </Wrapper>
   );
@@ -132,7 +143,7 @@ const SingleProduct = () => {
 const Wrapper = styled.section`
   .container {
     padding: 3rem;
-    zoom: 70%;
+    zoom: 80%;
   }
 
   .product_images {
@@ -152,7 +163,6 @@ const Wrapper = styled.section`
       color: ${({ theme }) => theme.colors.pinkw};
       font-size: 20px;
     };
-      
 
     .product-data-warranty {
       width: 100%;
