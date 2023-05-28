@@ -37,6 +37,7 @@
 .icon-menu {
   color: #d77da0;
   font-size: 30px;
+  cursor: pointer;
 }
 .quantity-cart {
   color: #ffff;

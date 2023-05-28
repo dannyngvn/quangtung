@@ -1,1 +1,10 @@
- 
+.slide-container {
+  height: 400px; /* Đặt kích thước cao cho slide container */
+  border-radius: 50px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}

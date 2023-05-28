@@ -1,21 +1,37 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
-
+import './Slider.css';
+import { Autoplay } from 'swiper';
+import { NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import data from '../../../contexts/data';
 import './Slider.css';
 
-// import required modules
-import { Autoplay } from 'swiper';
-import Product from '../../Product';
-
 const Slider = () => {
+  const [slidesData, setSlidesData] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    setSlidesData(data);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex(prevIndex =>
+        prevIndex === slidesData.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // interval timeout
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [slidesData]);
+
   return (
     <div className="container">
       <Swiper
-        slidesPerView={3}
+        slidesPerView={4}
         spaceBetween={30}
         autoplay={{
           delay: 2500,
@@ -24,9 +40,37 @@ const Slider = () => {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <Product />
-        </SwiperSlide>
+        {slidesData.map(slide => (
+          <SwiperSlide key={slide.id}>
+            <NavLink to={`/singleproduct/${slide.id}`}>
+              <div className="slide-container">
+                <figure className="slide-image">
+                  <img
+                    className="slide-image"
+                    src={slide.image}
+                    alt={slide.name}
+                  />
+                  <figcaption className="caption">{slide.category}</figcaption>
+                </figure>
+
+                <div className="card-data">
+                  <div className="card-data-flex">
+                    <h3>{slide.name}</h3>
+                  </div>
+
+                  <div className="card-data--price">
+                    <div>
+                      <span style={{ textDecoration: 'line-through' }}>
+                        Giá gốc: {slide.price + 20000}
+                      </span>
+                    </div>
+                    <div>Giá khuyến mại: {slide.price}</div>
+                  </div>
+                </div>
+              </div>
+            </NavLink>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
