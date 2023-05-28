@@ -60,3 +60,19 @@
   color: #f78da7;
   cursor: pointer;
 }
+
+.login-form-container p .line {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #b3d9c6;
+  border-radius: 4px;
+}
+
+.login-form-container p .line a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login-form-container p .line:hover {
+  background-color: #999;
+}

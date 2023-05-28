@@ -1,0 +1,79 @@
+.login-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.login-form-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.login-form-container label {
+  margin-bottom: 5px;
+}
+
+.login-form-container input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form-container button {
+  padding: 10px 20px;
+  background-color: #f78da7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form-container .errmsg {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.login-form-container .offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.login-form-container p {
+  margin-top: 10px;
+}
+
+.login-form-container .line {
+  text-decoration: none;
+}
+
+.login-form-container a {
+  color: #f78da7;
+  cursor: pointer;
+}
+
+
+.login-form-container p .line {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #b3d9c6;
+  border-radius: 4px;
+}
+
+.login-form-container p .line a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login-form-container p .line:hover {
+  background-color: #999;
+}

@@ -1,31 +1,27 @@
-import React, { useState } from "react";
-import Register from "./Register";
-import Login from "./LoginForm";
-import "./Login.css";
+import React, { useState } from 'react';
+import LoginForm from './LoginForm';
+import './Login.css';
 
 const LoginPage = () => {
-  const [activeTab, setActiveTab] = useState("register");
+  const [activeTab, setActiveTab] = useState('login');
 
-  const handleTabClick = (tab) => {
+  const handleTabClick = tab => {
     setActiveTab(tab);
   };
 
   return (
     <div className="login-page">
-      <div className={`tab ${activeTab === "register" ? "active" : ""}`} onClick={() => handleTabClick("register")}>
-        REGISTER
-      </div>
-      <div className={`tab ${activeTab === "login" ? "active" : ""}`} onClick={() => handleTabClick("login")}>
+      {/* <div
+        className={`tab ${activeTab === "login" ? "active" : ""}`}
+        onClick={() => handleTabClick("login")}
+      >
         LOGIN
-      </div>
+      </div> */}
       <div className="form-container">
-        {activeTab === "register" ? <Register /> : <Login />}
+        {activeTab === 'login' && <LoginForm />}
       </div>
     </div>
   );
 };
 
 export default LoginPage;
-
-
-

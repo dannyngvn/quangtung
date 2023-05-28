@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 import './LoginForm.css';
 
 const Login = () => {
@@ -19,22 +20,30 @@ const Login = () => {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     try {
       const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-      const existingUser = existingUsers.find((u) => u.id === user);
+      const existingUser = existingUsers.find(u => u.id === user);
 
       if (existingUser && existingUser.password === pwd) {
         setErrMsg('');
         setSuccess(true);
         saveLoginState(user);
-        setTimeout(() => {alert("Chúc mừng bạn đã đăng nhập thành công, hãy tiếp tục mua sắm và tận hưởng")}, 0,2);
+        setTimeout(
+          () => {
+            alert(
+              'Chúc mừng bạn đã đăng nhập thành công, hãy tiếp tục mua sắm và tận hưởng'
+            );
+          },
+          0,
+          2
+        );
         navigate('/products'); // Chuyển hướng đến trang "/products" sau khi đăng nhập thành công
         setTimeout(() => {
-        window.location.reload(); // Reload lại trang sau khi chuyển hướng
-      }, 0.2);
+          window.location.reload(); // Reload lại trang sau khi chuyển hướng
+        }, 0.2);
       } else {
         setErrMsg('Invalid username or password');
       }
@@ -46,7 +55,7 @@ const Login = () => {
     }
   };
 
-  const saveLoginState = (username) => {
+  const saveLoginState = username => {
     localStorage.setItem('id', username);
   };
 
@@ -63,7 +72,10 @@ const Login = () => {
           </section>
         ) : (
           <section>
-            <p className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
+            <p
+              className={errMsg ? 'errmsg' : 'offscreen'}
+              aria-live="assertive"
+            >
               {errMsg}
             </p>
             <h1>Sign In</h1>
@@ -74,7 +86,7 @@ const Login = () => {
                 id="username"
                 ref={userRef}
                 autoComplete="off"
-                onChange={(e) => setUser(e.target.value)}
+                onChange={e => setUser(e.target.value)}
                 value={user}
                 required
               />
@@ -84,7 +96,7 @@ const Login = () => {
                 type="password"
                 id="password"
                 ref={pwdRef}
-                onChange={(e) => setPwd(e.target.value)}
+                onChange={e => setPwd(e.target.value)}
                 value={pwd}
                 required
               />
@@ -94,8 +106,7 @@ const Login = () => {
               Need an Account?
               <br />
               <span className="line">
-                {/* Put router link here */}
-                <a href="#">Sign Up</a>
+                <NavLink to="/dang-ky">Sign Up</NavLink>
               </span>
             </p>
           </section>
@@ -106,8 +117,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-
-

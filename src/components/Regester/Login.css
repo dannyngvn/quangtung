@@ -16,7 +16,7 @@
 
 .tab.active {
   display: flex;
-  background-color: #f78da7;
+  /* background-color: #f78da7; */
   color: #fff;
   width: 50vh;
   align-items: center;

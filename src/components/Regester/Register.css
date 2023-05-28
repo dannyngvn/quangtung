@@ -1,62 +1,31 @@
-.login-form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.login-form-container h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.login-form-container form {
+.register-page {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
 }
 
-.login-form-container label {
-  margin-bottom: 5px;
-}
-
-.login-form-container input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-form-container button {
+.tab {
+  display: inline-block;
   padding: 10px 20px;
-  background-color: #f78da7;
+  cursor: pointer;
+
+}
+
+.tab.active {
+  display: flex;
+  /* background-color: #f78da7; */
   color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  width: 50vh;
+  align-items: center;
+  justify-content: center;
+  
 }
 
-.login-form-container .errmsg {
-  color: red;
-  margin-bottom: 10px;
+.form-container {
+  margin-top: 20px;
+  width: 50vh;
 }
 
-.login-form-container .offscreen {
-  position: absolute;
-  left: -9999px;
-}
-
-.login-form-container p {
-  margin-top: 10px;
-}
-
-.login-form-container .line {
-  text-decoration: none;
-}
-
-.login-form-container a {
-  color: #f78da7;
-  cursor: pointer;
-}

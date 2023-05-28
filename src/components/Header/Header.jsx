@@ -26,11 +26,12 @@ const Header = props => {
           <li>
             <i className="icon-menu lni lni-search-alt m-4"></i>
           </li>
-          <li>
-            <a href="https:thamyoganamaste.com">
+          <NavLink to="/login">
+            <li>
               <i className="icon-menu lni lni-user-alt-4"></i>
-            </a>
-          </li>
+            </li>
+          </NavLink>
+
           <li className="cart">
             <NavLink to="/cart">
               <i className="icon-menu lni lni-cart m-4"></i>
