@@ -9,6 +9,7 @@ import HeadingTitle from '../HeadingTitle/HeadingTitle';
 import Slider from './Slider/Slider';
 import SliderClone from './Slider/SliderClone';
 import GridCategory from './GridCategory/GridCategory';
+import { Helmet } from 'react-helmet';
 
 // import { Helmet } from 'react-helmet';
 import './GridCategory/GridCategory.css';
@@ -16,6 +17,9 @@ import './GridCategory/GridCategory.css';
 const HomePage = () => {
   return (
     <div className="homepage">
+      <Helmet>
+        <title>Trang chủ - Namaste Yoga Store</title>
+      </Helmet>
       <GridCategory />
       <HeadingTitle title="Sản Phẩm Mới" />
       <Slider />
@@ -32,6 +36,7 @@ const HomePage = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          a,
         }}
       >
         <div className="blur"></div>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
   const Wrapper = styled.section`
@@ -18,7 +19,7 @@ const Contact = () => {
           flex-direction: column;
           gap: 3rem;
 
-          input[type="submit"] {
+          input[type='submit'] {
             cursor: pointer;
             transition: all 0.2s;
 
@@ -36,13 +37,12 @@ const Contact = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
 
-    
     const formData = new FormData(event.target);
     const formDataObject = Object.fromEntries(formData.entries());
-    localStorage.setItem("formSubmission", JSON.stringify(formDataObject));
+    localStorage.setItem('formSubmission', JSON.stringify(formDataObject));
 
     setSubmitted(true);
   };
@@ -52,11 +52,14 @@ const Contact = () => {
   if (submitted) {
     // Hiển thị thông báo sau khi nhập form
     setTimeout(() => {
-      window.location.href = "/products";
+      window.location.href = '/products';
     }, redirectDelay);
 
     return (
       <Wrapper>
+        <Helmet>
+          <title>Liên hệ - Namaste Yoga Store</title>
+        </Helmet>
         <h2 className="common-heading">Contact us</h2>
         <p>Thank you so much for contacting us.</p>
         <p>You will be redirected to the products page shortly.</p>
@@ -80,40 +83,38 @@ const Contact = () => {
 
       <div className="container">
         <div className="contact-form">
-  
           <form onSubmit={handleSubmit} className="contact-inputs">
-          <input
-            type="text"
-            placeholder="Username"
-            name="username"
-            required
-            autoComplete="off"
-          />
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              required
+              autoComplete="off"
+            />
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            autoComplete="off"
-            required
-          />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              autoComplete="off"
+              required
+            />
 
-          <textarea
-            name="message"
-            cols="30"
-            rows="10"
-            required
-            autoComplete="off"
-            placeholder="Enter your message"
-          ></textarea>
+            <textarea
+              name="message"
+              cols="30"
+              rows="10"
+              required
+              autoComplete="off"
+              placeholder="Enter your message"
+            ></textarea>
 
-          <input type="submit" value="Send" />
-        </form>
+            <input type="submit" value="Send" />
+          </form>
+        </div>
       </div>
-    </div>
-  </Wrapper>
-);
+    </Wrapper>
+  );
 };
 
 export default Contact;
-

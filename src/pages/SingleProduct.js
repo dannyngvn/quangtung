@@ -12,6 +12,7 @@ import Star from '../components/Star';
 import AddToCart from '../components/AddToCart';
 import data from '../contexts/data';
 import { useProductContext } from '../contexts/ProductContext';
+import { Helmet } from 'react-helmet';
 
 const SingleProduct = () => {
   const {
@@ -58,6 +59,9 @@ const SingleProduct = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>{name} - Namaste Yoga Store</title>
+      </Helmet>
       {/* <PageNavigation title={name} /> */}
       <Container className="container">
         <div className="grid grid-two-column">

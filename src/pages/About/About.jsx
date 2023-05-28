@@ -1,10 +1,14 @@
 import React from 'react';
 import './About.css';
 import Member from './Member/Member';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
   return (
     <div>
+      <Helmet>
+        <title>Giới thiệu - Namaste Yoga Store</title>
+      </Helmet>
       <div
         style={{
           backgroundImage: `url('./asset/images/slogan.jpg')`,

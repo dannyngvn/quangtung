@@ -2,10 +2,14 @@ import styled from 'styled-components';
 import FilterSection from '../components/FilterSection';
 import ProductList from '../components/ProductList';
 import Sort from '../components/Sort';
+import { Helmet } from 'react-helmet';
 
 const Products = () => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Shop - Namaste Yoga Store</title>
+      </Helmet>
       <div className="container grid grid-filter-column">
         <div>
           <FilterSection />

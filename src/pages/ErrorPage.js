@@ -1,10 +1,14 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { Button } from "../styles/Button";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from '../styles/Button';
+import { Helmet } from 'react-helmet';
 
 const ErrorPage = () => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>404</title>
+      </Helmet>
       <div className="container">
         <div>
           <h2>404</h2>
