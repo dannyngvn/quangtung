@@ -16,7 +16,7 @@ import { useProductContext } from '../contexts/ProductContext';
 const SingleProduct = () => {
   const {
     getSingleProduct,
-    isSingleLoading,
+    // isSingleLoading,
     singleProduct = {},
   } = useProductContext();
   const { id } = useParams();
@@ -34,6 +34,7 @@ const SingleProduct = () => {
     reviews,
     image,
     images,
+    sold,
   } = singleProduct;
 
   useEffect(() => {
@@ -51,9 +52,9 @@ const SingleProduct = () => {
   // console.log(singleProduct.sizes);
   // console.log(singleProduct.colors);
 
-  if (isSingleLoading) {
-    return <div className="page_loading">Loading.....</div>;
-  }
+  // if (isSingleLoading) {
+  //   return <div className="page_loading">Loading.....</div>;
+  // }
 
   return (
     <Wrapper>
@@ -81,10 +82,10 @@ const SingleProduct = () => {
             </p>
             <p>{description}</p>
             <div className="product-data-warranty">
-              <div className="product-warranty-data">
+              {/* <div className="product-warranty-data">
                 <TbTruckDelivery className="warranty-icon" />
                 <p>Giao tận tay</p>
-              </div>
+              </div> */}
 
               <div className="product-warranty-data">
                 <TbReplace className="warranty-icon" />
@@ -113,6 +114,9 @@ const SingleProduct = () => {
               <p>
                 Brand :<span> {company} </span>
               </p>
+              <p>
+                Sold :<span> {sold} </span>
+              </p>
             </div>
             <hr />
             {stock > 0 && <AddToCart product={singleProduct} />}
@@ -126,7 +130,7 @@ const SingleProduct = () => {
 const Wrapper = styled.section`
   .container {
     padding: 3rem;
-    zoom: 80%;
+    zoom: 70%;
   }
 
   .product_images {

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { useState } from "react";
 import { useCartContext } from "../contexts/CartContext";
 import CartItem from "../components/CartItem";
 import { NavLink } from "react-router-dom";
@@ -7,8 +8,24 @@ import FormatPrice from "../Helpers/FormatPrice";
 
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
+  const [confirmClear, setConfirmClear] = useState(false);
 
   // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
+
+  const handleClearCart = () => {
+    if (confirmClear) {
+      clearCart();
+      setConfirmClear(false);
+    } else {
+      const confirmDelete = window.confirm(
+        "Bạn có chắc muốn xóa tất cả giỏ hàng?"
+      );
+      if (confirmDelete) {
+        setConfirmClear(true);
+      }
+    }
+  };
+
 
   if (cart?.length === 0) {
     return (
@@ -21,23 +38,24 @@ const Cart = () => {
   return (
     <Wrapper>
       <div className="container">
-        <div className="cart_heading grid grid-five-column">
-          <div className="">
-            <p>Item</p>
-          </div>
-          <div className="">
-            <p className="cart-hide">Price</p>
-          </div>
-          <div className="">
-            <p>Quantity</p>
-          </div>
-          <div className="">
-            <p className="cart-hide">Subtotal</p>
-          </div>
-          <div className="">
-            <p>Remove</p>
-          </div>
+      <div className="cart_heading grid grid-five-column">
+        <div className="">
+          <p>Item</p>
         </div>
+        <div className="">
+          <p className="cart-hide">Price</p>
+        </div>
+        <div className="">
+          <p>Quantity</p>
+        </div>
+        <div className="">
+          <p className="cart-hide">Subtotal</p>
+        </div>
+        <div className="">
+          <p>Remove</p>
+        </div>
+      </div>
+
 
         <hr />
         <div className="cart-item">
@@ -48,10 +66,10 @@ const Cart = () => {
         <hr />
         <div className="cart-two-button">
           <NavLink to="/products">
-            <Button> continue Shopping </Button>
+            <Button>Continue Shopping</Button>
           </NavLink>
-          <Button className="btn btn-clear" onClick={clearCart}>
-            clear cart
+          <Button className="btn btn-clear" onClick={handleClearCart}>
+            {confirmClear ? "Confirm Clear Cart" : "Clear Cart"}
           </Button>
         </div>
 
@@ -107,10 +125,12 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(4, 1fr) 0.3fr;
     text-align: center;
     align-items: center;
+  
   }
   .cart-heading {
     text-align: center;
     text-transform: uppercase;
+ 
   }
   hr {
     margin-top: 1rem;

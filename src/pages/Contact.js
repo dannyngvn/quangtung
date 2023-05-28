@@ -1,87 +1,119 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Contact = () => {
-  // const Wrapper = styled.section`
-  //   padding: 9rem 0 5rem 0;
-  //   text-align: center;
+  const Wrapper = styled.section`
+    padding: 9rem 0 5rem 0;
+    text-align: center;
 
-  //   .container {
-  //     margin-top: 6rem;
+    .container {
+      margin-top: 6rem;
 
-  //     .contact-form {
-  //       max-width: 50rem;
-  //       margin: auto;
+      .contact-form {
+        max-width: 50rem;
+        margin: auto;
 
-  //       .contact-inputs {
-  //         display: flex;
-  //         flex-direction: column;
-  //         gap: 3rem;
+        .contact-inputs {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
 
-  //         input[type="submit"] {
-  //           cursor: pointer;
-  //           transition: all 0.2s;
+          input[type="submit"] {
+            cursor: pointer;
+            transition: all 0.2s;
 
-  //           &:hover {
-  //             background-color: ${({ theme }) => theme.colors.white};
-  //             border: 1px solid ${({ theme }) => theme.colors.btn};
-  //             color: ${({ theme }) => theme.colors.btn};
-  //             transform: scale(0.9);
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `;
+            &:hover {
+              background-color: ${({ theme }) => theme.colors.white};
+              border: 1px solid ${({ theme }) => theme.colors.btn};
+              color: ${({ theme }) => theme.colors.btn};
+              transform: scale(0.9);
+            }
+          }
+        }
+      }
+    }
+  `;
 
-  // return (
-  //   <Wrapper>
-  //     <h2 className="common-heading">Contact page</h2>
+  const [submitted, setSubmitted] = useState(false);
 
-  //     <iframe
-  //       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588856342!2d73.91455641541671!3d18.562061287384868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c147b8b3a3bf%3A0x6f7fdcc8e4d6c77e!2sPhoenix%20Marketcity%20-%20Viman%20Nagar!5e0!3m2!1sen!2sin!4v1664345115285!5m2!1sen!2sin"
-  //       width="100%"
-  //       height="400"
-  //       style={{ border: 0 }}
-  //       allowFullScreen=""
-  //       loading="lazy"
-  //       referrerPolicy="no-referrer-when-downgrade"></iframe>
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  //     <div className="container">
-  //       <div className="contact-form">
-  //         <form
-  //           action="https://formspree.io/f/xeqdgwnq"
-  //           method="POST"
-  //           className="contact-inputs">
-  //           <input
-  //             type="text"
-  //             placeholder="username"
-  //             name="username"
-  //             required
-  //             autoComplete="off"
-  //           />
+    
+    const formData = new FormData(event.target);
+    const formDataObject = Object.fromEntries(formData.entries());
+    localStorage.setItem("formSubmission", JSON.stringify(formDataObject));
 
-  //           <input
-  //             type="email"
-  //             name="Email"
-  //             placeholder="Email"
-  //             autoComplete="off"
-  //             required
-  //           />
+    setSubmitted(true);
+  };
 
-  //           <textarea
-  //             name="Message"
-  //             cols="30"
-  //             rows="10"
-  //             required
-  //             autoComplete="off"
-  //             placeholder="Enter you message"></textarea>
+  const redirectDelay = 5000; // Độ trễ để điều hướng đến trang "/products"
 
-  //           <input type="submit" value="send" />
-  //         </form>
-  //       </div>
-  //     </div>
-  //   </Wrapper>
-  // );
+  if (submitted) {
+    // Hiển thị thông báo sau khi nhập form
+    setTimeout(() => {
+      window.location.href = "/products";
+    }, redirectDelay);
+
+    return (
+      <Wrapper>
+        <h2 className="common-heading">Contact us</h2>
+        <p>Thank you so much for contacting us.</p>
+        <p>You will be redirected to the products page shortly.</p>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <Wrapper>
+      <h2 className="common-heading">Contact us</h2>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.76417690027392!2d105.81895638494179!3d21.023608084835157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abb200489bbf%3A0xa1708dcdb1cc9901!2zWMO0aSBCw6BuIFRo4budICggY2jDrW5oIGhp4buHdSAyMCBuxINtKQ!5e0!3m2!1svi!2s!4v1684978839937!5m2!1svi!2s"
+        width="70%"
+        height="550"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+
+      <div className="container">
+        <div className="contact-form">
+  
+          <form onSubmit={handleSubmit} className="contact-inputs">
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            required
+            autoComplete="off"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            autoComplete="off"
+            required
+          />
+
+          <textarea
+            name="message"
+            cols="30"
+            rows="10"
+            required
+            autoComplete="off"
+            placeholder="Enter your message"
+          ></textarea>
+
+          <input type="submit" value="Send" />
+        </form>
+      </div>
+    </div>
+  </Wrapper>
+);
 };
 
 export default Contact;
+

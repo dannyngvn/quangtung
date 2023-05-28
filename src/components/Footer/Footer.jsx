@@ -1,6 +1,7 @@
 import React from 'react';
-import './Footer.css';
 import { Link, NavLink } from 'react-router-dom';
+import './Footer.css';
+
 const Footer = () => {
   return (
     <footer>
@@ -16,9 +17,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-duoi d-flex">
           <div>
-            <img className="logo-fb" src="./asset/images/logo-png.png" />
+            <img className="logo-fb" src="./asset/images/logo-png.png" alt="Logo" />
           </div>
-          <div className="khoi-icon d-flex justify-space-between ">
+          <div className="khoi-icon d-flex justify-space-between">
             <div className="icon-mxh d-flex align-item-center">
               <span className="icon-fb">
                 <i className="icon-facebook lni lni-facebook" />
@@ -31,7 +32,7 @@ const Footer = () => {
               </span>
             </div>
             <div>
-              <img src="/asset/images/shop29_payment.png" alt />
+              <img src="/asset/images/shop29_payment.png" alt="Payment Logo" />
             </div>
           </div>
         </div>
