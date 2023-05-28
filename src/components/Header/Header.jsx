@@ -24,6 +24,7 @@ const Header = props => {
     // Xóa dữ liệu đăng nhập khỏi local storage và cập nhật state
     localStorage.removeItem('id');
     setLoggedInUser('');
+    alert('đã đăng xuất');
   };
 
   return (

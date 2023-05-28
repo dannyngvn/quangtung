@@ -1,9 +1,9 @@
-* {
+/* * {
   zoom: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 #btnn {
   display: inline-block;
@@ -96,7 +96,7 @@
 }
 
 .blur::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
