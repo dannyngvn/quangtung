@@ -13,15 +13,17 @@ const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    setSlidesData(data);
+    const sortedData = [...data].sort((a, b) => b.id - a.id);
+    const topTenSlides = sortedData.slice(0, 10);
+    setSlidesData(topTenSlides);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex(prevIndex =>
+      setActiveIndex((prevIndex) =>
         prevIndex === slidesData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000); // interval timeout
+    }, 4000);
 
     return () => {
       clearInterval(interval);
@@ -40,7 +42,7 @@ const Slider = () => {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        {slidesData.map(slide => (
+        {slidesData.map((slide) => (
           <SwiperSlide key={slide.id}>
             <NavLink to={`/singleproduct/${slide.id}`}>
               <div className="slide-container">

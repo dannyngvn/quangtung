@@ -328,7 +328,7 @@ const data = [
   "stars": 4.8,
   "review": 90,
   "stock": 10,
-  "sold": 120,
+  "sold": 40,
 }, 
 {
   "id": "16",
@@ -351,7 +351,7 @@ const data = [
   "stars": 4.6,
   "review": 90,
   "stock": 10,
-  "sold": 130,
+  "sold": 110,
 }, 
 {
   "id": "17",
@@ -372,7 +372,7 @@ const data = [
   "stars": 4.2,
   "review": 150,
   "stock": 20,
-  "sold": 140,
+  "sold": 100,
 }, 
 {
   "id": "18",
@@ -393,7 +393,7 @@ const data = [
   "stars": 4.4,
   "review": 140,
   "stock": 20,
-  "sold": 150,
+  "sold": 60,
 },
 {
   "id": "19",
@@ -414,7 +414,7 @@ const data = [
   "stars": 4.7,
   "review": 150,
   "stock": 15,
-  "sold": 160,
+  "sold": 110,
 }, 
 {
   "id": "20",
@@ -435,7 +435,7 @@ const data = [
   "stars": 4.5,
   "review": 120,
   "stock": 15,
-  "sold": 170,
+  "sold": 100,
 }, 
 {
   "id": "21",
@@ -456,7 +456,7 @@ const data = [
   "stars": 4.8,
   "review": 120,
   "stock": 15,
-  "sold": 180,
+  "sold": 80,
 }, 
 
 
