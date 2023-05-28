@@ -10,10 +10,35 @@ import './Slider.css';
 
 const Slider = () => {
   const [slidesData, setSlidesData] = useState([]);
+  const [slidesPerView, setSlidesPerView] = useState(4);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    setSlidesData(data);
+    const sortedData = [...data].sort((a, b) => b.id - a.id);
+    const topTenSlides = sortedData.slice(0, 10);
+    setSlidesData(topTenSlides);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setSlidesPerView(4);
+      } else if (window.innerWidth >= 992) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -21,7 +46,7 @@ const Slider = () => {
       setActiveIndex(prevIndex =>
         prevIndex === slidesData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000); // interval timeout
+    }, 4000);
 
     return () => {
       clearInterval(interval);
@@ -31,7 +56,7 @@ const Slider = () => {
   return (
     <div className="container">
       <Swiper
-        slidesPerView={4}
+        slidesPerView={slidesPerView}
         spaceBetween={30}
         autoplay={{
           delay: 2500,

@@ -45,7 +45,7 @@ const Login = () => {
           window.location.reload(); // Reload lại trang sau khi chuyển hướng
         }, 0.2);
       } else {
-        setErrMsg('Invalid username or password');
+        setErrMsg('Tên đăng nhập hoặc mật khẩu không đúng');
       }
 
       setUser('');
@@ -64,10 +64,10 @@ const Login = () => {
       <div className="login-form-container">
         {success ? (
           <section>
-            <h1>You are logged in!</h1>
+            <h1>Chúc mừng bạn đã đăng nhập thành công!</h1>
             <br />
             <p>
-              <a href="#">Go to Home</a>
+              <a href="#">Trở về trang chủ</a>
             </p>
           </section>
         ) : (
@@ -78,9 +78,9 @@ const Login = () => {
             >
               {errMsg}
             </p>
-            <h1>Sign In</h1>
+            <h1>Đăng nhập</h1>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username">Tên đăng nhập:</label>
               <input
                 type="text"
                 id="username"
@@ -91,7 +91,7 @@ const Login = () => {
                 required
               />
 
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">Mật khẩu:</label>
               <input
                 type="password"
                 id="password"
@@ -100,13 +100,13 @@ const Login = () => {
                 value={pwd}
                 required
               />
-              <button>Sign In</button>
+              <button>Đăng nhập</button>
             </form>
             <p>
-              Need an Account?
+              Bạn muốn tạo tài khoản?
               <br />
               <span className="line">
-                <NavLink to="/dang-ky">Sign Up</NavLink>
+                <NavLink to="/dang-ky">Đăng ký</NavLink>
               </span>
             </p>
           </section>

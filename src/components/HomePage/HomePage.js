@@ -7,7 +7,9 @@ import CountdownTimer from './CountdownTimer/CountdownTimer';
 import { NavLink } from 'react-router-dom';
 import HeadingTitle from '../HeadingTitle/HeadingTitle';
 import Slider from './Slider/Slider';
+import SliderClone from './Slider/SliderClone';
 import GridCategory from './GridCategory/GridCategory';
+import { Helmet } from 'react-helmet';
 
 // import { Helmet } from 'react-helmet';
 import './GridCategory/GridCategory.css';
@@ -15,12 +17,16 @@ import './GridCategory/GridCategory.css';
 const HomePage = () => {
   return (
     <div className="homepage">
+      <Helmet>
+        <title>Trang chủ - Namaste Yoga Store</title>
+      </Helmet>
       <GridCategory />
       <HeadingTitle title="Sản Phẩm Mới" />
       <Slider />
       <HeadingTitle title="Sản Bán Chạy" />
-      <Slider />
+      <SliderClone />
       <div
+        className="sale-banner"
         style={{
           backgroundImage: `url('./asset/images/slogan.jpg')`,
           backgroundRepeat: 'no-repeat',

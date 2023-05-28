@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,23 @@ import AddToCart from "../components/AddToCart";
 import data from "../contexts/data";
 import { useProductContext } from "../contexts/ProductContext";
 import RatingForm from "../components/RatingForm/RatingForm";
+=======
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+import { MdSecurity } from 'react-icons/md';
+import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
+// import { createContext, useContext, useEffect, useReducer } from "react";
+import MyImage from '../components/MyImage';
+import PageNavigation from '../components/PageNavigation';
+import { Container } from '../styles/Container';
+import FormatPrice from '../Helpers/FormatPrice';
+import Star from '../components/Star';
+import AddToCart from '../components/AddToCart';
+import data from '../contexts/data';
+import { useProductContext } from '../contexts/ProductContext';
+import { Helmet } from 'react-helmet';
+>>>>>>> 69a63baac7e3e8359267beac785e1cdc5efb4d08
 
 const SingleProduct = () => {
   const {
@@ -62,6 +80,13 @@ const SingleProduct = () => {
 
   return (
     <Wrapper>
+<<<<<<< HEAD
+=======
+      <Helmet>
+        <title>{name} - Namaste Yoga Store</title>
+      </Helmet>
+      {/* <PageNavigation title={name} /> */}
+>>>>>>> 69a63baac7e3e8359267beac785e1cdc5efb4d08
       <Container className="container">
         <div className="grid grid-two-column">
           <div className="product_images">
