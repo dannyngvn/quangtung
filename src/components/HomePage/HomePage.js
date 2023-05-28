@@ -26,6 +26,7 @@ const HomePage = () => {
       <HeadingTitle title="Sản Bán Chạy" />
       <SliderClone />
       <div
+        className="sale-banner"
         style={{
           backgroundImage: `url('./asset/images/slogan.jpg')`,
           backgroundRepeat: 'no-repeat',

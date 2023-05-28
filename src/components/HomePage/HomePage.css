@@ -135,6 +135,9 @@
   .small-banner {
     width: 100%;
   }
+  .sale-banner {
+    margin: 0 20px;
+  }
 }
 @media screen and (max-width: 768px) {
   .slogan-text {
