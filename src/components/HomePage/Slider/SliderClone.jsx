@@ -10,11 +10,34 @@ import './SliderClone.css';
 const Slider = () => {
   const [slidesData, setSlidesData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(4);
 
   useEffect(() => {
     const sortedData = [...data].sort((a, b) => b.sold - a.sold);
     const topTenSlides = sortedData.slice(0, 10);
     setSlidesData(topTenSlides);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setSlidesPerView(4);
+      } else if (window.innerWidth >= 992) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -32,10 +55,10 @@ const Slider = () => {
   return (
     <div className="container">
       <Swiper
-        slidesPerView={4}
+        slidesPerView={slidesPerView}
         spaceBetween={30}
         autoplay={{
-          delay: 3500,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
