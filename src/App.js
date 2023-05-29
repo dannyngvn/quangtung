@@ -18,6 +18,7 @@ import LoginPage from './components/Regester/Login';
 import Footer from './components/Footer/Footer';
 import { GlobalStyle } from './GlobalStyle';
 import Register from './components/Regester/Register';
+import ButtonContac from './components/ButtonContac/ButtonContac';
 
 const App = () => {
   const theme = {
@@ -72,6 +73,7 @@ const App = () => {
           <Route path="/Cart" element={<Cart />} />
         </Routes>
         <Footer />
+        <ButtonContac />
       </Router>
     </ThemeProvider>
   );

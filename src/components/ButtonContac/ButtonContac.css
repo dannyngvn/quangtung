@@ -1,0 +1,15 @@
+.ButtonContac {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  bottom: 50%;
+  right: 30px;
+  z-index: 50;
+}
+
+.contac-icon-social {
+  width: 50px;
+}
