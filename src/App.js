@@ -58,7 +58,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
-        <Header imgurl="./asset/images/logo-png.png" />
+        <Header imgurl="/asset/images/logo-png.png" />
         <MenuModal />
         <Routes>
           <Route path="/" element={<HomePage />} />

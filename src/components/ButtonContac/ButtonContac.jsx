@@ -1,5 +1,6 @@
 import React from 'react';
 import './ButtonContac.css';
+import BackToTopButton from './BackToTop/BackToTop';
 
 const ButtonContac = () => {
   return (
@@ -18,6 +19,7 @@ const ButtonContac = () => {
           alt="call"
         />
       </a>
+      <BackToTopButton />
     </div>
   );
 };
