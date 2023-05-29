@@ -16,7 +16,11 @@ const Footer = () => {
       <div className="container">
         <div className="footer-duoi d-flex">
           <div>
-            <img className="logo-fb" src="./asset/images/logo-png.png" alt="Logo" />
+            <img
+              className="logo-fb"
+              src="/asset/images/logo-png.png"
+              alt="Logo"
+            />
           </div>
           <div className="khoi-icon d-flex justify-space-between">
             <div className="icon-mxh d-flex align-item-center">
