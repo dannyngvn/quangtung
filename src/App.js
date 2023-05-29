@@ -69,6 +69,7 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dang-ky" element={<Register />} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
         <Footer />
       </Router>

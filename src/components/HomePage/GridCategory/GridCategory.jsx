@@ -1,6 +1,7 @@
 import React from 'react';
 import './GridCategory.css';
 import Banner from '../Banner/Banner';
+import { Link, NavLink } from 'react-router-dom';
 
 const GridCategory = () => {
   return (
@@ -66,7 +67,9 @@ const GridCategory = () => {
                 Phụ Kiện Yoga
               </h3>
             </div>
-            <div className="shopnow-banner1">Shop Now</div>
+            <div className="shopnow-banner1">
+              <Link to="/products">Shop Now</Link>
+            </div>
           </div>
           <div className="banner-3">
             <div className="conten-banner3">
@@ -109,7 +112,9 @@ const GridCategory = () => {
                 OFF
               </h3>
             </div>
-            <div className="shopnow-banner1">Shop Now</div>
+             <div className="shopnow-banner1">
+              <Link to="/products">Shop Now</Link>
+            </div>
           </div>
         </div>
       </div>

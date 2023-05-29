@@ -48,9 +48,9 @@ const RatingSummary = ({ reviews }) => {
 
   return (
     <div>
-      <h3>Đánh giá:</h3>
+      
       <h3>{renderStars(averageRating)}</h3>
-      <h3>Số lượt đánh giá: {reviews.length}</h3>
+      
       {reviews.map((review, index) => (
         <div key={index}>
           <p>Name: {review.name}</p>

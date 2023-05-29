@@ -1,17 +1,12 @@
 import React from 'react';
-
 import './HomePage.css';
-
 import CountdownTimer from './CountdownTimer/CountdownTimer';
-
 import { NavLink } from 'react-router-dom';
 import HeadingTitle from '../HeadingTitle/HeadingTitle';
 import Slider from './Slider/Slider';
 import SliderClone from './Slider/SliderClone';
 import GridCategory from './GridCategory/GridCategory';
 import { Helmet } from 'react-helmet';
-
-// import { Helmet } from 'react-helmet';
 import './GridCategory/GridCategory.css';
 
 const HomePage = () => {

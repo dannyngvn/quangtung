@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import RatingFormInput from '../RatingFormInput/RatingFormInput';
 import RatingSummary from '../RatingSummary/RatingSummary';
+import data from '../../contexts/data';
+
 import './RatingForm.css';
 
 const RatingForm = () => {
-  const [rating, setRating] = useState(0);
+  const [star, setStar] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [review, setReview] = useState('');
   const [name, setName] = useState('');
@@ -12,29 +15,20 @@ const RatingForm = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Lưu dữ liệu RatingForm vào localStorage
-    const formData = {
-      rating: rating,
-      review: review,
-      name: name,
-      email: email
-    };
-    localStorage.setItem('ratingFormData', JSON.stringify(formData));
-  }, [rating, review, name, email]);
+    const storedReviews = localStorage.getItem('reviews');
+    if (storedReviews) {
+      setReviews(JSON.parse(storedReviews));
+    }
+  }, []);
 
   useEffect(() => {
-    // Save form data to localStorage whenever it changes
-    const formData = {
-      rating: rating,
-      review: review,
-      name: name,
-      email: email
-    };
-    localStorage.setItem('ratingFormData', JSON.stringify(formData));
-  }, [rating, review, name, email]);
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+  }, [reviews]);
+
+  const { id } = useParams();
 
   const handleRatingChange = (event) => {
-    setRating(Number(event.target.value));
+    setStar(Number(event.target.value));
   };
 
   const handleReviewChange = (event) => {
@@ -53,7 +47,8 @@ const RatingForm = () => {
     event.preventDefault();
 
     const newReview = {
-      rating: rating,
+      id: id,
+      rating: star,
       review: review,
       name: name,
       email: email
@@ -61,26 +56,36 @@ const RatingForm = () => {
 
     const updatedReviews = [...reviews, newReview];
 
-    console.log('Đánh giá:', rating);
-    console.log('Bình luận:', review);
-    console.log('Họ và Tên:', name);
-    console.log('Email:', email);
+    const productIndex = data.findIndex((item) => item.id === id);
+    if (productIndex !== -1) {
+      const product = { ...data[productIndex] };
+      const updatedStars = (product.stars * product.review + star) / (product.review + 1);
+      product.stars = updatedStars.toFixed(1);
+      product.review += 1;
+      data[productIndex] = product;
+    }
 
-    setRating(0);
+    setStar(0);
     setReview('');
     setName('');
     setEmail('');
     setReviews(updatedReviews);
   };
 
+  // Tính tổng số lượt đánh giá
+  const totalReviews = reviews.length + (data.find(item => item.id === id)?.review || 0);
+  console.log(reviews.length);
+  console.log(totalReviews);
+
   return (
-    <div className='reviewForm'>
+    <div className="reviewForm">
       <h2>Đánh giá và Bình luận</h2>
       <RatingSummary reviews={reviews} />
-      <div className='rating-form'>
+      <p>Tổng số lượt đánh giá: {totalReviews}</p>
+      <div className="rating-form">
         <form onSubmit={handleSubmit}>
           <RatingFormInput
-            rating={rating}
+            rating={star}
             hoverRating={hoverRating}
             handleRatingChange={handleRatingChange}
             review={review}
@@ -98,3 +103,4 @@ const RatingForm = () => {
 };
 
 export default RatingForm;
+
