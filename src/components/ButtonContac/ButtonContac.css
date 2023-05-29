@@ -13,3 +13,9 @@
 .contac-icon-social {
   width: 50px;
 }
+
+@media screen and (max-width: 768px) {
+  .ButtonContac {
+    bottom: 30px;
+  }
+}
