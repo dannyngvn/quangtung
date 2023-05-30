@@ -15,8 +15,6 @@ import RatingForm from "../components/RatingForm/RatingForm";
 import { Helmet } from 'react-helmet';
 import RatingSummary from "../components/RatingSummary/RatingSummary";
 
-
-
 const SingleProduct = () => {
   const {
     getSingleProduct,
@@ -44,7 +42,8 @@ const SingleProduct = () => {
   const [review, setReview] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
-  
+  const [activeTab, setActiveTab] = useState("description");
+
   const scrollToTopRef = useRef(null);
 
   useEffect(() => {
@@ -61,81 +60,109 @@ const SingleProduct = () => {
     scrollToTopRef.current.scrollIntoView({ behavior: "smooth" });
   }, [id, getSingleProduct, singleProduct]);
 
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
 
-      <Wrapper ref={scrollToTopRef}>
-        <Container className="container">
-          <div className="grid grid-two-column">
-            <div className="product_images">
-              <MyImage imgs={images} />
-            </div>
+    <Wrapper ref={scrollToTopRef}>
+      <Container className="container">
+        <div className="grid grid-two-column">
+          <div className="product_images">
+            <MyImage imgs={images} />
+          </div>
 
-            <div className="product-data">
-              <h2>{name}</h2>
-              {/* <Star stars={stars} reviews={reviews} /> */}
+          <div className="product-data">
+            <h2>{name}</h2>
+            {/* <Star stars={stars} reviews={reviews} /> */}
 
-              <p className="product-data-price">
-                Giá gốc:
-                <del>
-                  <FormatPrice price={price + 20000} />
-                </del>
-              </p>
-              <p className="product-data-price product-data-real-price">
-                Giá khuyến mại: <FormatPrice price={price} />
-              </p>
-              <p>{description}</p>
-              <div className="product-data-warranty">
-                
-                {/* <div className="product-warranty-data">
+            <p className="product-data-price">
+              Giá gốc:
+              <del>
+                <FormatPrice price={price + 20000} />
+              </del>
+            </p>
+            <p className="product-data-price product-data-real-price">
+              Giá khuyến mại: <FormatPrice price={price} />
+            </p>
+            <p>{description}</p>
+            <div className="product-data-warranty">
+
+              {/* <div className="product-warranty-data">
                   <TbTruckDelivery className="warranty-icon" />
                   <p>Giao tận tay</p>
                 </div> */}
 
-                <div className="product-warranty-data">
-                  <TbReplace className="warranty-icon" />
-                  <p>30 ngày đổi trả free</p>
-                </div>
-
-                <div className="product-warranty-data">
-                  <TbTruckDelivery className="warranty-icon" />
-                  <p>Vận chuyển nhanh nhất</p>
-                </div>
-
-                <div className="product-warranty-data">
-                  <MdSecurity className="warranty-icon" />
-                  <p>Bảo hành tận tình</p>
-                </div>
+              <div className="product-warranty-data">
+                <TbReplace className="warranty-icon" />
+                <p>30 ngày đổi trả free</p>
               </div>
 
-              <div className="product-data-info">
-                <p>
-                  Available:
-                  <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
-                </p>
-                <p>
-                  ID : <span> {productId} </span>
-                </p>
-                <p>
-                  Brand :<span> {company} </span>
-                </p>
+              <div className="product-warranty-data">
+                <TbTruckDelivery className="warranty-icon" />
+                <p>Vận chuyển nhanh nhất</p>
               </div>
-              <hr />
-              {stock > 0 && <AddToCart product={singleProduct} />}
+
+              <div className="product-warranty-data">
+                <MdSecurity className="warranty-icon" />
+                <p>Bảo hành tận tình</p>
+              </div>
             </div>
-          </div>
-          <RatingForm
-        rating={rating}
-        setRating={setRating}
-        review={review}
-        setReview={setReview}
-        customerName={customerName}
-        setCustomerName={setCustomerName}
-        email={email}
-        setEmail={setEmail}
-      />
-        </Container>
-    
 
+            <div className="product-data-info">
+              <p>
+                Available:
+                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+              </p>
+              <p>
+                ID : <span> {productId} </span>
+              </p>
+              <p>
+                Brand :<span> {company} </span>
+              </p>
+            </div>
+            <hr />
+            {stock > 0 && <AddToCart product={singleProduct} />}
+          </div>
+        </div>
+        <div className="tab-container">
+          <div
+            className={`tab ${activeTab === "description" ? "active" : ""}`}
+            onClick={() => handleTabChange("description")}
+          >
+            Mô tả
+          </div>
+          <div
+            className={`tab ${activeTab === "reviews" ? "active" : ""}`}
+            onClick={() => handleTabChange("reviews")}
+          >
+            Đánh giá
+          </div>
+        </div>
+
+        {activeTab === "description" && (
+          <div className="tab-content">
+            {/* Mô tả */}
+          </div>
+        )}
+
+        {activeTab === "reviews" && (
+          <div className="tab-content">
+            <RatingForm
+              rating={rating}
+              setRating={setRating}
+              review={review}
+              setReview={setReview}
+              customerName={customerName}
+              setCustomerName={setCustomerName}
+              email={email}
+              setEmail={setEmail}
+            />
+          </div>
+        )}
+
+      </Container>
     </Wrapper>
   );
 };
@@ -143,6 +170,39 @@ const SingleProduct = () => {
 
 
 const Wrapper = styled.section`
+
+.tab-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.tab {
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  color: ${({ theme }) => theme.colors.pinkw};
+  background-color: ${({ theme }) => theme.colors.lightPink};
+  border: 1px solid ${({ theme }) => theme.colors.ư};
+  border-radius: 0.5rem;
+  width:200px;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.pinkw};
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  &.active {
+    background-color: ${({ theme }) => theme.colors.pinkw};
+    color: ${({ theme }) => theme.colors.white};
+    width:200px;
+  }
+}
+
+.tab-content {
+  margin-top: 2rem;
+}
   .container {
     padding: 3rem;
     zoom: 80%;
