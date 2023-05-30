@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="footer-tren d-flex">
-          <NavLink to="/login">Tài Khoản</NavLink>
+          <NavLink to="/login">Đăng ký/Đăng nhập</NavLink>
           <NavLink to="Cart">Tra cứu đơn hàng</NavLink>
           <NavLink to="/about">Về Chúng tôi</NavLink>
         </div>

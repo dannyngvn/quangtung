@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import RatingFormInput from '../RatingFormInput/RatingFormInput';
 import RatingSummary from '../RatingSummary/RatingSummary';
 import data from '../../contexts/data';
-
 import './RatingForm.css';
+
+
 
 const RatingForm = () => {
   const [star, setStar] = useState(0);
@@ -72,9 +73,26 @@ const RatingForm = () => {
     setReviews(updatedReviews);
   };
 
-  // Tính tổng số lượt đánh giá
+  
 
-  const totalReviews = reviews.length + (data.find(item => item.review)?.review || 0);
+  // Tính tổng số lượt đánh giá
+let totalReviews;
+
+{
+  let currentIdReviews = 0;
+  if (localStorage.reviews) {
+    const storedReviews = JSON.parse(localStorage.reviews);
+    currentIdReviews = storedReviews.reduce((total, review) => {
+      if (review.id === id) {
+        return total + 1;
+      }
+      return total;
+    }, 0);
+  }
+  totalReviews = currentIdReviews + (data.find(item => item.id === id)?.review || 0);
+}
+
+console.log(totalReviews);
  
 
   return (
