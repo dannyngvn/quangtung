@@ -7,7 +7,6 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="footer-tren d-flex">
-          {/* <NavLink to="/login">Đăng ký/Đăng nhập</NavLink> */}
           <NavLink to="Cart">Tra cứu đơn hàng</NavLink>
           <NavLink to="/about">Về Chúng tôi</NavLink>
         </div>
@@ -17,7 +16,7 @@ const Footer = () => {
         <div className="footer-duoi d-flex">
           <div>
             <img
-              className="logo-fb"
+              className="logo-ft"
               src="/asset/images/logo-png.png"
               alt="Logo"
             />
@@ -35,7 +34,11 @@ const Footer = () => {
               </span>
             </div>
             <div>
-              <img src="/asset/images/shop29_payment.png" alt="Payment Logo" />
+              <img
+                className="Payment-Logo"
+                src="/asset/images/shop29_payment.png"
+                alt="Payment-Logo"
+              />
             </div>
           </div>
         </div>

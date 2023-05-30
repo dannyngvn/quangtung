@@ -21,7 +21,7 @@ const Header = props => {
   }, []);
 
   const handleLogout = () => {
-    // Xóa dữ liệu đăng nhập khỏi local storage và cập nhật state
+    // Xóa dữ liệu đăng nhập khỏi local storage và cập nhật stat
     localStorage.removeItem('id');
     setLoggedInUser('');
     alert('đã đăng xuất');
@@ -29,7 +29,7 @@ const Header = props => {
 
   return (
     <div className="sticky-header">
-      <div className="header container">
+      <div className="header container ">
         <div className="menu-icon">
           <i onClick={turnOnMenu} className="icon-menu lni lni-menu"></i>
         </div>

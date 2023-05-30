@@ -18,6 +18,8 @@
   padding: 0;
   align-items: center;
   gap: 15px;
+  text-align: center;
+  position: relative;
 }
 
 .cart {
@@ -31,7 +33,7 @@
 }
 
 .menu-icon {
-  width: 186px;
+  width: auto;
 }
 
 .icon-menu {
@@ -47,8 +49,8 @@
   line-height: 25px;
   text-align: center;
   position: absolute;
-  top: -18px;
-  right: -26px;
+  top: 0px;
+  right: -14px;
 }
 
 .use-btn {
@@ -63,4 +65,14 @@
 
 .use-btn:focus {
   box-shadow: 0 0 0 0.2rem #d77da0;
+}
+/* responsive */
+@media screen and (max-width: 768px) {
+  .nav-icon {
+    gap: 7px;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
 }
