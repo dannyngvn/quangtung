@@ -6,7 +6,6 @@ import data from '../../contexts/data';
 import './RatingForm.css';
 
 
-
 const RatingForm = () => {
   const [star, setStar] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
@@ -15,18 +14,43 @@ const RatingForm = () => {
   const [email, setEmail] = useState('');
   const [reviews, setReviews] = useState([]);
 
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [isLocalStorageUpdated, setIsLocalStorageUpdated] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  const { id } = useParams();
   useEffect(() => {
-    const storedReviews = localStorage.getItem('reviews');
+    const storedReviews = localStorage.getItem(`reviews-${id}`);
     if (storedReviews) {
       setReviews(JSON.parse(storedReviews));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-  }, [reviews]);
+    localStorage.setItem(`reviews-${id}`, JSON.stringify(reviews));
+    setIsLocalStorageUpdated(true);
+  }, [reviews, id]);
 
-  const { id } = useParams();
+
+  useEffect(() => {
+    if (isLocalStorageUpdated) {
+      let reviewCount = data.find((item) => item.id === id)?.review || 0;
+
+      const storedReviews = localStorage.getItem(`reviews-${id}`);
+      if (storedReviews) {
+        const reviewsData = JSON.parse(storedReviews);
+        const currentIdReviews = reviewsData.reduce((total, review) => {
+          if (review.id === id) {
+            return total + 1;
+          }
+          return total;
+        }, 0);
+        reviewCount += currentIdReviews;
+      }
+
+      setTotalReviews(reviewCount);
+    }
+  }, [isLocalStorageUpdated, id]);
 
   const handleRatingChange = (event) => {
     setStar(Number(event.target.value));
@@ -52,7 +76,7 @@ const RatingForm = () => {
       rating: star,
       review: review,
       name: name,
-      email: email
+      email: email,
     };
 
     const updatedReviews = [...reviews, newReview];
@@ -71,29 +95,15 @@ const RatingForm = () => {
     setName('');
     setEmail('');
     setReviews(updatedReviews);
+    setShowNotification(true);
+
+    setTimeout(() => {
+      setShowNotification(false);
+      window.location.reload();
+    }, 2000);
+
+    alert('Cảm ơn bạn đã đánh giá sản phẩm của chúng tôi, vui lòng tiếp tục mua sắm!');
   };
-
-  
-
-  // Tính tổng số lượt đánh giá
-let totalReviews;
-
-{
-  let currentIdReviews = 0;
-  if (localStorage.reviews) {
-    const storedReviews = JSON.parse(localStorage.reviews);
-    currentIdReviews = storedReviews.reduce((total, review) => {
-      if (review.id === id) {
-        return total + 1;
-      }
-      return total;
-    }, 0);
-  }
-  totalReviews = currentIdReviews + (data.find(item => item.id === id)?.review || 0);
-}
-
-console.log(totalReviews);
- 
 
   return (
     <div className="reviewForm">
@@ -121,4 +131,3 @@ console.log(totalReviews);
 };
 
 export default RatingForm;
-

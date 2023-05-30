@@ -11,7 +11,7 @@ const RatingFormInput = ({
   email,
   handleEmailChange
 }) => {
-  const [hoverRating, setHoverRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(1);
 
   const handleStarClick = (index) => {
     handleRatingChange({ target: { value: index } });
@@ -27,7 +27,8 @@ const RatingFormInput = ({
 
   const renderStars = () => {
     const stars = [];
-    for (let i = 1; i <= 5; i++) {
+    const j=1;
+    for (let i = j; i <= 5; i++) {
       stars.push(
         <span
           key={i}
@@ -47,8 +48,9 @@ const RatingFormInput = ({
   };
 
   const updateHoverRating = (value) => {
-    setHoverRating(value);
+    setHoverRating(value <= 1 ? value : 1);
   };
+  
 
   return (
     <div className="rating-form">

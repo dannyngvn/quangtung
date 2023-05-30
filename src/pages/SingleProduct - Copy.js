@@ -13,8 +13,6 @@ import data from "../contexts/data";
 import { useProductContext } from "../contexts/ProductContext";
 import RatingForm from "../components/RatingForm/RatingForm";
 import { Helmet } from 'react-helmet';
-import RatingSummary from "../components/RatingSummary/RatingSummary";
-
 
 
 const SingleProduct = () => {
