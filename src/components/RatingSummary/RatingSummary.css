@@ -4,5 +4,25 @@
     height: 10px;
     color: #000000; 
   }
-
+  .rating-summary{
+    position: relative;
+  }
+  .pagination {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom:20px;
+  }
   
+  .pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    font-weight: bold;
+    background-color: #dddddd;
+  }

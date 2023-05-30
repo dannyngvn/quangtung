@@ -57,3 +57,16 @@ h3 {
     margin-bottom: 10px;
 }
 
+.reviewForm{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.rating-summary {
+    border: 1px solid #b96d8a;
+    width: 600px;
+    padding: 20px;
+    margin: 30px;
+    height: 65vh;
+  }

@@ -71,6 +71,11 @@ const RatingForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (star === 0) {
+      alert("Vui lòng nhập số sao trước khi gửi đánh giá!");
+      return;
+    }
+    
     const newReview = {
       id: id,
       rating: star,
@@ -107,8 +112,8 @@ const RatingForm = () => {
 
   return (
     <div className="reviewForm">
+      <div>
       <h2>Đánh giá và Bình luận</h2>
-      <RatingSummary reviews={reviews} />
       <p>Tổng số lượt đánh giá: {totalReviews}</p>
       <div className="rating-form">
         <form onSubmit={handleSubmit}>
@@ -126,6 +131,8 @@ const RatingForm = () => {
           <button type="submit">Gửi đi</button>
         </form>
       </div>
+      </div>
+      <RatingSummary className="rating-summary" reviews={reviews} />
     </div>
   );
 };

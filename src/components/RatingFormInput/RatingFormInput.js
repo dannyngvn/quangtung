@@ -11,7 +11,7 @@ const RatingFormInput = ({
   email,
   handleEmailChange
 }) => {
-  const [hoverRating, setHoverRating] = useState(1);
+  const [hoverRating, setHoverRating] = useState(0);
 
   const handleStarClick = (index) => {
     handleRatingChange({ target: { value: index } });
@@ -48,7 +48,7 @@ const RatingFormInput = ({
   };
 
   const updateHoverRating = (value) => {
-    setHoverRating(value <= 1 ? value : 1);
+    setHoverRating(value);
   };
   
 
