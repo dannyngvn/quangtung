@@ -5,6 +5,7 @@ import { Autoplay } from 'swiper';
 import { NavLink } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import data from '../../../contexts/data';
+import FormatPrice from "../../../Helpers/FormatPrice";
 import './SliderClone.css';
 
 const Slider = () => {
@@ -85,10 +86,13 @@ const Slider = () => {
                   <div className="card-data--price">
                     <div>
                       <span style={{ textDecoration: 'line-through' }}>
-                        Giá gốc: {slide.price + 20000}
+                      Giá gốc: <FormatPrice price={slide.price + 20000} />
                       </span>
                     </div>
-                    <div>Giá khuyến mại: {slide.price}</div>
+                    <div>
+                       Giá khuyến mại: 
+                      <FormatPrice price={slide.price} />
+                      </div>
                   </div>
                 </div>
               </div>
