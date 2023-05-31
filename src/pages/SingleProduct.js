@@ -86,7 +86,7 @@ const SingleProduct = () => {
             <p className="product-data-price product-data-real-price">
               Giá khuyến mại: <FormatPrice price={price} />
             </p>
-            <p>{description}</p>
+            
             <div className="product-data-warranty">
 
               {/* <div className="product-warranty-data">
@@ -141,11 +141,18 @@ const SingleProduct = () => {
           </div>
         </div>
 
-        {activeTab === "description" && (
+        {/* {activeTab === "description" && (
           <div className="tab-content">
-            {/* Mô tả */}
+            <p>{description}</p>
           </div>
+        )} */}
+
+        {activeTab === "description" && (
+          <div className="tab-content" dangerouslySetInnerHTML={{ __html: description }} />
         )}
+
+
+
 
         {activeTab === "reviews" && (
           <div className="tab-content">
@@ -203,6 +210,11 @@ const Wrapper = styled.section`
 .tab-content {
   margin-top: 2rem;
 }
+.tab-content h3 {
+  color: ${({ theme }) => theme.colors.pinkw};
+  font-size: 20px;
+}
+
   .container {
     padding: 3rem;
     zoom: 80%;
@@ -225,6 +237,7 @@ const Wrapper = styled.section`
       color: ${({ theme }) => theme.colors.pinkw};
       font-size: 20px;
     }
+   
 
     .product-data-warranty {
       width: 100%;
