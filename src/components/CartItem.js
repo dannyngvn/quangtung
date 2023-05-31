@@ -17,8 +17,7 @@ const CartItem = ({ id, name, image, color, price, amount, size }) => {
     }
   };
 
-  // console.log(id);
-  // console.log(color);
+ 
   // console.log(amount);
   // console.log(size);
 
@@ -33,15 +32,16 @@ const CartItem = ({ id, name, image, color, price, amount, size }) => {
           </div>
           <div>
             <p className="image-name">{name}</p>
+
             <div className="color-div">
-              <p>color:</p>
-              <div
-                className="color-style"
-                style={{ backgroundColor: color, color: color }}></div>
+                <div className="color-div-style"> Color:</div>
+                <div className="color-style"
+                style={{ backgroundColor: color, color: color }}>
+                </div>
             </div>
 
             <div className="sizes-div">
-              <p style={{ display: "inline" }}>size: </p>
+              <p style={{ display: "inline" }}>Size: </p>
               <div
                 className="sizes-style"
                 style={{ color: "pink", display: "inline" }}>
@@ -89,5 +89,22 @@ const Wrapper = styled.section`
   .cart-image--name p {
     font-size: 12px;
   }
+  .color-div-style {
+    color: #FFC0CB;
+    display: inline;
+  }
+  
+  .color-style {
+    width: 50px;
+    height: 20px;
+    border: 1px solid #000;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+  
+    color: #d77da0;
+    padding-right: 1rem;
+  }
+  
 `;
 export default CartItem;

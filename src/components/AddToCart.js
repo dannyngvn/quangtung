@@ -90,7 +90,7 @@ const AddToCart = ({ product }) => {
       {/* <CartAmountToggle amount={amount} setDecrease={setDecrease} setIncrease={setIncrease} /> */}
 
       <Button className="btn" onClick={handleAddToCartClick}>
-        Add To Cart
+      Thêm vào giỏ hàng
       </Button>
     </Wrapper>
   );

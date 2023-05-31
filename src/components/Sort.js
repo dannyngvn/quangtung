@@ -36,13 +36,13 @@ const Sort = () => {
             id="sort"
             className="sort-selection--style"
             onClick={sorting}>
-            <option value="lowest">Giá(Từ thấp đến cao)</option>
+            <option value="lowest">Giá (Từ thấp đến cao)</option>
             <option value="#" disabled></option>
-            <option value="highest">Giá(Từ cao đến thấp)</option>
+            <option value="highest">Giá (Từ cao đến thấp)</option>
             <option value="#" disabled></option>
-            <option value="a-z">Tên sản phẩm(a-z)</option>
+            <option value="a-z">Tên sản phẩm (a-z)</option>
             <option value="#" disabled></option>
-            <option value="z-a">Tên sản phẩm(z-a)</option>
+            <option value="z-a">Tên sản phẩm (z-a)</option>
           </select>
         </form>
       </div>

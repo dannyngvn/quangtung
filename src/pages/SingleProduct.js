@@ -113,14 +113,14 @@ const SingleProduct = () => {
 
             <div className="product-data-info">
               <p>
-                Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+                Tình trạng:
+                <span> {stock > 0 ? "Còn hàng" : "Hết hàng"}</span>
               </p>
               <p>
-                ID : <span> {productId} </span>
+                Mã sản phẩm : <span> {productId} </span>
               </p>
               <p>
-                Brand :<span> {company} </span>
+                Thương hiệu :<span> {company} </span>
               </p>
             </div>
             <hr />
