@@ -43,19 +43,19 @@ const Cart = () => {
       <div className="container">
         <div className="cart_heading grid grid-five-column">
           <div className="">
-            <p>Item</p>
+            <p>SẢN PHẨM</p>
           </div>
           <div className="">
-            <p className="cart-hide">Price</p>
+            <p className="cart-hide">ĐƠN GIÁ</p>
           </div>
           <div className="">
-            <p>Quantity</p>
+            <p>SỐ LƯỢNG</p>
           </div>
           <div className="">
-            <p className="cart-hide">Subtotal</p>
+            <p className="cart-hide">THÀNH TIỀN</p>
           </div>
           <div className="">
-            <p>Remove</p>
+            <p>XÓA</p>
           </div>
         </div>
 
@@ -68,10 +68,10 @@ const Cart = () => {
         <hr />
         <div className="cart-two-button">
           <NavLink to="/products">
-            <Button>Continue Shopping</Button>
+            <Button>Tiếp tục mua sắm</Button>
           </NavLink>
           <Button className="btn btn-clear" onClick={handleClearCart}>
-            {confirmClear ? 'Confirm Clear Cart' : 'Clear Cart'}
+            {confirmClear ? 'Xác nhận xóa giỏ hàng' : 'Xóa giỏ hàng'}
           </Button>
         </div>
 
@@ -79,20 +79,20 @@ const Cart = () => {
         <div className="order-total--amount">
           <div className="order-total--subdata">
             <div>
-              <p>subtotal:</p>
+              <p>Tạm tính:</p>
               <p>
                 <FormatPrice price={total_price} />
               </p>
             </div>
             <div>
-              <p>shipping fee:</p>
+              <p>Phí vận chuyển:</p>
               <p>
                 <FormatPrice price={shipping_fee} />
               </p>
             </div>
             <hr />
             <div>
-              <p>order total:</p>
+              <p>Tổng tiền:</p>
               <p>
                 <FormatPrice price={shipping_fee + total_price} />
               </p>
@@ -239,7 +239,7 @@ const Wrapper = styled.section`
       border: 0.1rem solid #f0f0f0;
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
+      gap: 0.5rem;
       padding: 3.2rem;
     }
     div {

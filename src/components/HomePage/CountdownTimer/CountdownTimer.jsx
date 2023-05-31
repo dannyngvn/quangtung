@@ -28,7 +28,7 @@ const CountdownTimer = ({ hours, minutes, seconds }) => {
 
   return (
     <div className="countdown-sale">
-      <h1 className="countdown-label">SALE – KHUYẾN MÃI</h1>
+      <h1 className="countdown-label">SALE OFF – KHUYẾN MÃI</h1>
       <p className="countdown-detail">
         Rất nhiều sản phẩm đang được giảm giá và ưu đãi tại đây. Xin mời tham
         khảo!

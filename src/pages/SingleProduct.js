@@ -36,6 +36,7 @@ const SingleProduct = () => {
     reviews,
     image,
     images,
+    colors,
   } = singleProduct;
 
   const [rating, setRating] = useState(0);

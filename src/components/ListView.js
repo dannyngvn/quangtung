@@ -1,34 +1,45 @@
+
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import FormatPrice from "../Helpers/FormatPrice";
 import { Button } from "../styles/Button";
+import { v4 as uuidv4 } from "uuid"
 
 const ListView = ({ products }) => {
   return (
     <Wrapper className="section">
       <div className="container grid">
         {products.map((curElem) => {
-          const { id, name, image, price, description } = curElem;
+          const { id, name, image, price, sizes, colors } = curElem;
+          const key = uuidv4(); // Tạo giá trị duy nhất cho thuộc tính key
           return (
-            <div className="card grid grid-two-column">
+            <div className="card grid grid-two-column" key={key}>
               <figure>
                 <img src={image} alt={name} />
               </figure>
 
               <div className="card-data">
                 <h3>{name}</h3>
-                <p>
-                <div>
+                <div className="card-data-price">
+                  <div>
                     <span style={{ textDecoration: "line-through" }}>
+                      Giá gốc:
                       {<FormatPrice price={price + 20000} />}
                     </span>
-               </div>
-                  <FormatPrice price={price} />
-                </p>
-                <p>{description.slice(0, 90)}...</p>
+                    <hr/>
+                  </div>
+                    Giá khuyến mại:
+                    <FormatPrice price={price} />
+                  </div>
+
+                {/* 
+                <div className="dangerouslySetInnerHTML" style={{ color: 'black', fontSize: '0px' }}>
+                <p dangerouslySetInnerHTML={{ __html: description.slice(0, 40) }} />
+              </div> */}
+            
 
                 <NavLink to={`/singleproduct/${id}`} className="btn-main">
-                  <Button className="btn">Read More</Button>
+                  <Button className="btn">Chi tiết</Button>
                 </NavLink>
               </div>
             </div>
@@ -39,13 +50,21 @@ const ListView = ({ products }) => {
   );
 };
 
+
+
+
+
 const Wrapper = styled.section`
   padding: 9rem 0;
 
   .container {
     max-width: 120rem;
   }
-
+  .dangerouslySetInnerHTML {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #000;
+  }
   .grid {
     gap: 3.2rem;
   }
@@ -97,7 +116,12 @@ const Wrapper = styled.section`
       text-transform: capitalize;
       color: ${({ theme }) => theme.colors.pinkw};
     }
-
+    .card-data-price {
+      margin: 2rem 0;
+      font-weight: 100;
+      font-size: 1.2rem;
+      color: ${({ theme }) => theme.colors.pinkw};
+    }
     .btn {
       margin: 2rem 0;
       background-color: rgb(0 0 0 / 0%);

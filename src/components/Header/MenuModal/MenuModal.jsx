@@ -10,16 +10,16 @@ const MenuModal = () => {
   return (
     <div onClick={turnOfMenu} className="menu">
       <NavLink to="/" className="navlink">
-        Home
+        TRANG CHỦ
       </NavLink>
       <NavLink to="/products" className="navlink">
-        Shop
+        SHOP
       </NavLink>
       <NavLink to="/about" className="navlink">
-        About
+        VỀ CHÚNG TÔI
       </NavLink>
       <NavLink to="/contact" className="navlink">
-        Contact
+        LIÊN HỆ
       </NavLink>
     </div>
   );

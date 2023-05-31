@@ -35,7 +35,7 @@ const Header = props => {
         </div>
         <div className="logo">
           <Link to="/">
-            <img src={imgurl} alt="logo" />
+            <img className="logo-image" src={imgurl} alt="logo" />
           </Link>
         </div>
 

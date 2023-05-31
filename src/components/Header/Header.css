@@ -1,6 +1,23 @@
-.logo img {
+/* .logo img {
   width: 200px;
+} */
+.logo img {
+  width: 23vh;
 }
+@media (max-width: 768px) {
+  .logo img {
+    height: 5vh;
+    width: auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .logo img {
+    height: 8vh;
+    width: auto;
+  }
+}
+
 
 .sticky-header {
   background-color: rgb(255, 255, 255);
@@ -71,7 +88,8 @@
   .nav-icon {
     gap: 7px;
   }
-
+  
+  
   .header {
     justify-content: space-between;
   }
